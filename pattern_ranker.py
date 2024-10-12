@@ -5,7 +5,7 @@ import pdb
 import time
 import tqdm
 
-log_path = dirname(__file__) + '/log/' + str(datetime.datetime.now().strftime(
+log_path = '.' + '/log/' + str(datetime.datetime.now().strftime(
     '%Y-%m-%d')) + '_nezha.log'
 logger = Logger(log_path, logging.DEBUG, __name__).getlog()
 
@@ -90,7 +90,7 @@ def abnormal_pattern_ranker(normal_pattern_dict, abnormal_pattern_dict, min_scor
 
 
 def pattern_ranker(normal_pattern_dict, normal_event_graphs, abnormal_time, ns, log_template_miner,topk=10, min_score=0.67):
-    rca_path = dirname(__file__) +  "/rca_data"
+    rca_path = '.' +  "/rca_data"
     abnormal_pattern_dict, _, alarm_list = get_pattern(abnormal_time, ns, rca_path,log_template_miner)
     abnormal_pattern_score = abnormal_pattern_ranker(
         normal_pattern_dict, abnormal_pattern_dict, min_score)
@@ -209,7 +209,7 @@ def evaluation(normal_time_list, fault_inject_list, ns,log_template_miner):
     """
     fault_number = 0
     top_list = []
-    construction_data_path = dirname(__file__) +  "/construct_data"
+    construction_data_path = '.' +  "/construct_data"
 
     for i in range(len(fault_inject_list)):
         ground_truth_path = fault_inject_list[i]
@@ -358,7 +358,7 @@ def evaluation_min_score(normal_time_list, fault_inject_list, ns,log_template_mi
     fault_number = 0
     top_list = []
     min_score_list = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
-    construction_data_path = dirname(__file__) +  "/construct_data"
+    construction_data_path = '.' +  "/construct_data"
 
     for min_score in min_score_list:
         for i in range(len(fault_inject_list)):
@@ -497,7 +497,7 @@ def evaluation_pod(normal_time_list, fault_inject_list, ns,log_template_miner):
     """
     fault_number = 0
     top_list = []
-    construction_data_path = dirname(__file__) +  "/construct_data"
+    construction_data_path = '.' +  "/construct_data"
 
     for i in range(len(fault_inject_list)):
         ground_truth_path = fault_inject_list[i]
@@ -646,13 +646,13 @@ if __name__ == '__main__':
     path2 = "./construction_data/2022-08-23/2022-08-23-fault_list.json"
 
     ns = "hipster"
-    template_indir = dirname(__file__) + '/log_template'
+    template_indir = '.' + '/log_template'
     config = TemplateMinerConfig()
 
-    config.load(dirname(__file__) + "/log_template/drain3_" + ns + ".ini")
+    config.load('.' + "/log_template/drain3_" + ns + ".ini")
     config.profiling_enabled = False
 
-    path = dirname(__file__) + '/log_template/' + ns + ".bin"
+    path = '.' + '/log_template/' + ns + ".bin"
     persistence = FilePersistence(path)
     template_miner = TemplateMiner(persistence, config=config)
 

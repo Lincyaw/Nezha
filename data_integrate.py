@@ -20,7 +20,7 @@ import tqdm
 import concurrent.futures
 
 
-log_path = dirname(__file__) + '/log/' + str(datetime.datetime.now().strftime(
+log_path = '.' + '/log/' + str(datetime.datetime.now().strftime(
     '%Y-%m-%d')) + '_nezha.log'
 logger = Logger(log_path, logging.DEBUG, __name__).getlog()
 

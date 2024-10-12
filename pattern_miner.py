@@ -1,7 +1,7 @@
 import datetime
 from data_integrate import *
 
-log_path = dirname(__file__) + '/log/' + str(datetime.datetime.now().strftime(
+log_path = '.' + '/log/' + str(datetime.datetime.now().strftime(
     '%Y-%m-%d')) + '_nezha.log'
 logger = Logger(log_path, logging.DEBUG, __name__).getlog()
 
@@ -16,7 +16,7 @@ logger = Logger(log_path, logging.DEBUG, __name__).getlog()
 #     """
 #     print(datetime.datetime.now())
 
-#     spmf_path = dirname(__file__) + "/spmf"
+#     spmf_path = '.' + "/spmf"
 #     spmf = Spmf("CM-SPAM", input_direct=event_sequences,
 #                 output_filename="./spmf/SPAM.txt", arguments=[0.01, 2, 2], spmf_bin_location_dir=spmf_path, memory=8192)
 #     spmf.run()
@@ -37,7 +37,7 @@ logger = Logger(log_path, logging.DEBUG, __name__).getlog()
 
 #     # print(datetime.datetime.now())
 
-#     spmf_path = dirname(__file__) + "/spmf"
+#     spmf_path = '.' + "/spmf"
 #     spmf = Spmf("TKG", input_filename=file_name,
 #                 output_filename="./spmf/tkg.txt", arguments=[topk, 2, False, False, True], spmf_bin_location_dir=spmf_path, memory=8192)
 #     spmf.run()
@@ -74,7 +74,7 @@ logger = Logger(log_path, logging.DEBUG, __name__).getlog()
 #     v 1 11
 #     e 0 1 20
 #     """
-#     file_name = dirname(__file__) + "/spmf/" + str(datetime.datetime.now().strftime(
+#     file_name = '.' + "/spmf/" + str(datetime.datetime.now().strftime(
 #         '%Y-%m-%d')) + "_tkg_input.txt"
 #     f = open(file_name, "w")
 

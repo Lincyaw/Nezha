@@ -16,7 +16,7 @@ from drain3.file_persistence import FilePersistence
 from drain3.template_miner_config import TemplateMinerConfig
 
 
-log_path = dirname(__file__) + '/log/' + str(datetime.datetime.now().strftime(
+log_path = '.' + '/log/' + str(datetime.datetime.now().strftime(
     '%Y-%m-%d')) + '_nezha.log'
 logger = Logger(log_path, logging.DEBUG, __name__).getlog()
 
@@ -157,10 +157,10 @@ if __name__ == '__main__':
     # 指定文件夹的路径
     for  i in range(0,4):
         ns = "hipster"
-        config.load(dirname(__file__) + "/log_template/drain3_" + ns + ".ini")
+        config.load('.' + "/log_template/drain3_" + ns + ".ini")
         config.profiling_enabled = False
 
-        path = dirname(__file__) + '/log_template/' + ns + ".bin"
+        path = '.' + '/log_template/' + ns + ".bin"
         persistence = FilePersistence(path)
         template_miner = TemplateMiner(persistence, config=config)
         folder_path_list = ['./rca_data/2022-08-22/log','./rca_data/2022-08-23/log']
@@ -176,10 +176,10 @@ if __name__ == '__main__':
                         log_parsing(log=log_reader['Log'][i], pod=log_reader['PodName'][i], log_template_miner=template_miner)
 
         # ns = "ts"
-        # config.load(dirname(__file__) + "/log_template/drain3_" + ns + ".ini")
+        # config.load('.' + "/log_template/drain3_" + ns + ".ini")
         # config.profiling_enabled = False
 
-        # path = dirname(__file__) + '/log_template/' + ns + ".bin"
+        # path = '.' + '/log_template/' + ns + ".bin"
         # persistence = FilePersistence(path)
         # template_miner = TemplateMiner(persistence, config=config)
         # folder_path_list = ['./rca_data/2023-01-29/log', './rca_data/2023-01-30/log']
